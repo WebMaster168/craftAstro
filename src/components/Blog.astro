@@ -1,0 +1,89 @@
+<section class="blog section">
+  <div class="blog__container">
+    <img src="img/objectDetail.png" alt="" class="blog__photo" />
+    <div class="blog__date">11 июля 2024</div>
+    <h1 class="subtitle subtitle--size">Особенности быстровозводимых промышленных зданий</h1>
+    <div class="blog__description">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat.
+      </p>
+      <p>
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+        sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat.
+      </p>
+      <p>
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+        sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat.
+      </p>
+      <p>
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+        sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+    </div>
+  </div>
+</section>
+<style is:global lang="scss">
+  .blog {
+    @include section;
+    &__container {
+      grid-area: center;
+      width: 66%;
+    }
+    &__photo {
+      width: 100%;
+      object-fit: cover;
+      height: fluid(250px, 364px);
+      margin-bottom: fluid(20px, 40px);
+    }
+    &__date {
+      color: #281d15;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 18px;
+      margin-bottom: 10px;
+    }
+    &__description {
+      display: flex;
+      flex-direction: column;
+      gap: fluid(15px, 30px);
+      color: #5a5a5a;
+      font-size: fluid(16px, 18px);
+      line-height: fluid(25px, 27px);
+      ul {
+        li {
+          list-style-type: disc;
+          margin-left: 20px;
+          &::marker {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+  @include laptop {
+    .blog {
+      &__container {
+        width: 100%;
+      }
+    }
+  }
+  @include phone {
+    .blog {
+      &__photo {
+        height: 150px;
+      }
+    }
+  }
+</style>

@@ -1,0 +1,67 @@
+---
+import CardGrid from "@components/CardGrid.astro"
+
+export const cardsTitles: string[] = [
+    "Магазины из сэндвича",
+    "Производственные помещения",
+    "Станции технического обслуживания",
+    "Быстровозводимые ангары из сэндвич панелей",
+    "Строительство складов и ангаров",
+    "Строительство автомоек",
+    "Строительство торговых павильонов",
+    "Строительство овощехранилищ",
+    "Строительство холодных и утепленных складов и ангаров под ключ",
+    "Монтаж металлоконструкций",
+    "Быстровозводимые ангары из сэндвич панелей",
+    "Быстровозводимые здания из сэндвич панелей",
+    "Быстровозводимые дома",
+    "Быстровозводимые склады из сэндвич панелей",
+]
+---
+
+<section class="build section">
+    <div class="build__container">
+        <div class="build__description">
+            <h2 class="subtitle">Мы построим следующие объекты по Вашим размерам</h2>
+            <p class="build__description-text">
+                Строим быстровозводимые здания и ангары и проектируем здания различных видов предназначения , склады,
+                строения, сооружения под различные задачи. Можем рассмотреть строительство зданий из любых материалов.
+            </p>
+            <p class="build__description-subtitle">В работу берем объекты от 200 м2</p>
+        </div>
+        <CardGrid {cardsTitles} />
+    </div>
+</section>
+
+<style is:global lang="scss">
+    .build {
+        @include section;
+        &__container {
+            grid-area: center;
+        }
+        &__description {
+            width: 65%;
+            &-text {
+                color: #5a5a5a;
+                font-size: fluid(16px, 18px);
+                line-height: fluid(26px, 28px);
+                margin-bottom: fluid(10px, 20px);
+            }
+            &-subtitle {
+                font-size: fluid(18px, 20px);
+                font-weight: 700;
+                line-height: fluid(20px, 22px);
+                margin-bottom: fluid(20px, 40px);
+                color: #281d15;
+                font-weight: 700;
+            }
+        }
+    }
+    @include laptop {
+        .build {
+            &__description {
+                width: 100%;
+            }
+        }
+    }
+</style>

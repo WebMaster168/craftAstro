@@ -1,0 +1,16 @@
+---
+import Layout from "@components/Layout.astro"
+import Breadcrumbs from "@components/Breadcrumbs.astro"
+import Information from "@components/Information.astro"
+import Gallery from "@components/Gallery.astro"
+import Feedback from "@components/Feedback.astro"
+
+const items = ["Главная", "Готовые объекты"]
+---
+
+<Layout title="Производственный комплекс насосного оборудования">
+  <Breadcrumbs {items} last="Производственный комплекс насосного оборудования" />
+  <Information pages="objects" />
+  <Gallery />
+  <Feedback />
+</Layout>

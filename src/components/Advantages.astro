@@ -1,0 +1,78 @@
+---
+const advantages: string[] = [
+  "Поставки от ведущих производителей сэндвич панелей в России",
+  "Собственное производство металлоконструкций",
+  "Минимальные сроки строительства",
+  "Собственные персонал: 3 монтажные бригады",
+]
+---
+
+<section class="advantages section">
+  <div class="advantages__container">
+    <h2 class="subtitle">Наши преимущества</h2>
+    <div class="advantages__cards">
+      {
+        advantages.map((item, index) => (
+          <div class="advantages__item">
+            <div class="advantages__item-number">0{index + 1}</div>
+            <div class="advantages__item-title">{item}</div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style is:global lang="scss">
+  .advantages {
+    @include section;
+    &__container {
+      grid-area: center;
+    }
+
+    &__cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    &__item {
+      background-color: #fff;
+      padding: fluid(20px, 24px);
+      padding-top: 5px;
+      min-height: fluid(200px, 260px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      &-number {
+        font-size: fluid(54px, 72px);
+        font-weight: 800;
+        line-height: fluid(62px, 88px);
+        color: #f1e2da;
+      }
+      &-title {
+        color: #281d15;
+        font-size: fluid(15px, 20px);
+        font-weight: 700;
+        line-height: fluid(18px, 22px);
+      }
+    }
+  }
+  @include laptop {
+    .advantages {
+      &__cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      &__item {
+        min-height: 160px;
+      }
+    }
+  }
+  @include laptop {
+    .advantages {
+      &__cards {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+</style>

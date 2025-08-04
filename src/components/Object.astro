@@ -1,0 +1,216 @@
+---
+import Pages from "@components/Pages.astro"
+const object: { title: string; photo: string }[] = [
+  {
+    title: "Производственный комплекс насосного оборудования",
+    photo: "/img/object.png",
+  },
+  {
+    title: "Производственный комплекс насосного оборудования",
+    photo: "/img/object.png",
+  },
+  {
+    title: "Производственный комплекс насосного оборудования",
+    photo: "/img/object.png",
+  },
+  {
+    title: "Производственный комплекс насосного оборудования",
+    photo: "/img/object.png",
+  },
+  {
+    title: "Производственный комплекс насосного оборудования",
+    photo: "/img/object.png",
+  },
+  {
+    title: "Производственный комплекс насосного оборудования",
+    photo: "/img/object.png",
+  },
+  {
+    title: "Производственный комплекс насосного оборудования",
+    photo: "/img/object.png",
+  },
+  {
+    title: "Производственный комплекс насосного оборудования",
+    photo: "/img/object.png",
+  },
+  {
+    title: "Производственный комплекс насосного оборудования",
+    photo: "/img/object.png",
+  },
+]
+const blog: { title: string; photo: string }[] = [
+  {
+    title: "Особенности быстровозводимых промышленных зданий",
+    photo: "/img/object.png",
+  },
+  {
+    title: "Особенности быстровозводимых промышленных зданий",
+    photo: "/img/object.png",
+  },
+  {
+    title: "Особенности быстровозводимых промышленных зданий",
+    photo: "/img/object.png",
+  },
+  {
+    title: "Особенности быстровозводимых промышленных зданий",
+    photo: "/img/object.png",
+  },
+  {
+    title: "Особенности быстровозводимых промышленных зданий",
+    photo: "/img/object.png",
+  },
+  {
+    title: "Особенности быстровозводимых промышленных зданий",
+    photo: "/img/object.png",
+  },
+  {
+    title: "Особенности быстровозводимых промышленных зданий",
+    photo: "/img/object.png",
+  },
+  {
+    title: "Особенности быстровозводимых промышленных зданий",
+    photo: "/img/object.png",
+  },
+  {
+    title: "Особенности быстровозводимых промышленных зданий",
+    photo: "/img/object.png",
+  },
+]
+interface Props {
+  pages?: "blog" | "objects"
+}
+const { pages } = Astro.props
+---
+
+{
+  pages === "objects" && (
+    <section class="object section">
+      <div class="object__container">
+        <h1 class="title">Готовые объекты</h1>
+        <div class="object__cards">
+          {object.map(({ title, photo }) => (
+            <a href="" class="object__cards-item">
+              <img alt="" src={photo} class="object__cards-img" />
+              <div class="object__cards-title">{title}</div>
+            </a>
+          ))}
+        </div>
+        <Pages />
+      </div>
+    </section>
+  )
+}
+{
+  pages === "blog" && (
+    <section class="object section">
+      <div class="object__container">
+        <h1 class="title">Блог Компании</h1>
+        <div class="object__cards">
+          {blog.map(({ title, photo }, index) => (
+            <a href="" class="object__cards-item">
+              <img alt="" src={photo} class="object__cards-img object__cards-img--size" />
+              <div class="object__cards-title">{title}</div>
+              {index === 1 ? (
+                <div class="object__cards-text">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                  dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur
+                  adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor
+                  sit amet, consectetur
+                </div>
+              ) : (
+                <div class="object__cards-text">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                  dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur
+                </div>
+              )}
+              <div class="object__cards-date">11 июля 2024</div>
+            </a>
+          ))}
+        </div>
+        <Pages />
+      </div>
+    </section>
+  )
+}
+<style is:global lang="scss">
+  .object {
+    @include section;
+    &__container {
+      grid-area: center;
+    }
+    &__cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: fluid(20px, 30px);
+      &-item {
+        @include hover {
+          &:hover {
+            .object__cards-title {
+              color: #c26733;
+            }
+          }
+        }
+      }
+      &-img {
+        width: 100%;
+        height: fluid(260px, 310px);
+        object-fit: cover;
+        margin-bottom: 16px;
+        &--size {
+          height: fluid(160px, 234px);
+        }
+      }
+      &-title {
+        font-size: 20px;
+        line-height: 22px;
+        color: #281d15;
+        font-weight: 700;
+        margin-bottom: 12px;
+        transition: color $transition;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+      &-text {
+        color: #5a5a5a;
+        font-size: fluid(14px, 16px);
+        line-height: fluid(22px, 24px);
+        -webkit-line-clamp: 4;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        margin-bottom: 16px;
+      }
+      &-date {
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 18.2px;
+        text-align: left;
+        color: #281d15;
+      }
+    }
+  }
+  @include laptop {
+    .object {
+      &__cards {
+        &-img {
+          height: 200px;
+        }
+      }
+    }
+  }
+  @include tablet {
+    .object {
+      &__cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+  @include phone {
+    .object {
+      &__cards {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+</style>

@@ -1,0 +1,236 @@
+---
+import Btn from "./Btn.astro"
+---
+
+<div class="modal" id="application">
+  <div class="modal__container">
+    <h2 class="subtitle subtitle--white">Оставьте заявку</h2>
+    <form class="modal__form" id="modalForm">
+      <input type="text" name="name" required class="modal__form-input" placeholder="Имя" />
+      <input type="tel" name="phone" required class="modal__form-input" placeholder="+7 (___) ___-__-__" />
+      <Btn submit variant="full" form="modalForm" id="feedback_form_btn">Заказать звонок</Btn>
+      <div class="modal__form-wrapper">
+        <input type="checkbox" class="modal__form-checkbox" checked id="checkModal" />
+        <label for="checkModal" class="modal__form-text">
+          Я согласен на обработку моих персональных данных и с условиями <a href="">политики конфиденциальности</a>.
+        </label>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="modal" id="cost">
+  <div class="modal__container">
+    <h2 class="subtitle subtitle--white">Узнать стоимость</h2>
+    <form class="modal__form" id="modalCost">
+      <input type="text" name="name" class="modal__form-input" placeholder="Имя" />
+      <input type="text" name="phone" class="modal__form-input" placeholder="+7 (___) ___-__-__" />
+      <Btn submit variant="full" form="modalCost" id="feedback_form_btn">Узнать стоимость</Btn>
+      <div class="modal__form-wrapper">
+        <input type="checkbox" class="modal__form-checkbox" checked id="checkModal" />
+        <label for="checkModal" class="modal__form-text">
+          Я согласен на обработку моих персональных данных и с условиями <a href="">политики конфиденциальности</a>.
+        </label>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="modal" id="success">
+  <div class="modal__container">
+    <img src="/img/Check.png" alt="" class="modal__icon" />
+    <h2 class="subtitle subtitle--white">Спасибо за заявку!</h2>
+    <div class="modal__text">
+      Наш специалист свяжется с вами в течение 10 минут и поможет найти оптимальное решение.
+    </div>
+  </div>
+</div>
+
+<style is:global lang="scss">
+  .modal {
+    display: none;
+    background-color: #43362f;
+    padding: fluid(30px, 40px);
+    width: fluid(480px, 580px);
+    &__container {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    &__text {
+      font-size: fluid(16px, 18px);
+      font-weight: 400;
+      line-height: fluid(22px, 28px);
+      color: #ffffff;
+    }
+    &__icon {
+      width: fluid(80px, 100px);
+      height: fluid(80px, 100px);
+      object-fit: contain;
+      margin-bottom: fluid(20px, 24px);
+    }
+    &__form {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      &-input {
+        background-color: #ffffff;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: 15px;
+        padding-right: 15px;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 22px;
+        color: #281d15;
+        &::placeholder {
+          color: #5a5a5a;
+        }
+      }
+      &-wrapper {
+        width: 100%;
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+      }
+      &-checkbox {
+        appearance: none;
+        width: 16px;
+        height: 16px;
+        transition: all $transition;
+        background-color: #ffffff;
+        background-image: url(/img/Union.svg);
+        background-repeat: no-repeat;
+        background-size: 12px contain;
+        background-position: center;
+        &:checked {
+          background-color: #c26733;
+        }
+      }
+      &-text {
+        width: 95%;
+        font-size: 16px;
+        line-height: 24px;
+        text-align: left;
+        color: #9c9c9c;
+        a {
+          position: relative;
+          &::after {
+            content: " ";
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #9c9c9c;
+            transition: width $transition;
+          }
+          @include hover {
+            &:hover {
+              &::after {
+                width: 0%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .fancybox__content > .f-button.is-close-btn {
+    width: 32px;
+    height: 32px;
+    top: -40px;
+    right: -40px;
+  }
+  .f-button svg {
+    width: 32px;
+    height: 32px;
+  }
+  .textError {
+    color: #ffffff;
+    font-size: 18px;
+    line-height: 28px;
+    text-align: left;
+  }
+  @include laptop {
+    .is-compact .fancybox__content > .f-button.is-close-btn {
+      background-color: transparent;
+    }
+  }
+</style>
+<script>
+  import { Fancybox } from "@fancyapps/ui"
+  Fancybox.bind(".modalbox", {
+    autoFocus: false,
+  })
+
+  function validation(formSubmit: HTMLFormElement, idForm: string, url: string) {
+    formSubmit.addEventListener("submit", e => {
+      e.preventDefault()
+      const form = new FormData(formSubmit)
+      form.append("form_id", formSubmit.id)
+      let obj: any = {}
+      for (let [key, value] of form) {
+        obj[key] = value
+      }
+      fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(obj),
+      })
+        .then(response => {
+          if (!response.ok) {
+            return response.json()
+          }
+          return response.text()
+        })
+        .then(value => {
+          let data = ""
+          for (let [key] of form) {
+            if (obj[key] == "") {
+              data = "Заполните все поля"
+              break
+            }
+          }
+
+          if (data == "Заполните все поля") {
+            let textError = document.createElement("p")
+            document.querySelector(".textError")?.remove()
+            textError.classList.add("textError")
+            formSubmit.append(textError)
+            if (textError) textError.innerHTML = data
+          } else {
+            document.querySelector(".textError")?.remove()
+            Fancybox.close()
+            new Fancybox(
+              [
+                {
+                  src: `#${idForm}`,
+                },
+              ],
+              {},
+            )
+            formSubmit.reset()
+          }
+        })
+    })
+  }
+
+  const modalForm = document.querySelector("#modalForm")
+  if (modalForm instanceof HTMLFormElement) {
+    validation(modalForm, "success", "/wp-content/themes/sa-kraft/mail/mail_consultation.php")
+  }
+  const modalCost = document.querySelector("#modalCost")
+  if (modalCost instanceof HTMLFormElement) {
+    validation(modalCost, "success", "/wp-content/themes/sa-kraft/mail/mail_consultation.php")
+  }
+  const feedbackConsultation = document.querySelector("#feedbackConsultation")
+  if (feedbackConsultation instanceof HTMLFormElement) {
+    validation(feedbackConsultation, "success", "/wp-content/themes/sa-kraft/mail/mail_consultation.php")
+  }
+  let formOrder = document.querySelector("#feedback")
+  if (formOrder instanceof HTMLFormElement) {
+    validation(formOrder, "success", "/wp-content/themes/sa-kraft/mail/mail_feedback.php")
+  }
+</script>

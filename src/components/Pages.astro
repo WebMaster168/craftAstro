@@ -1,0 +1,68 @@
+<div class="pages">
+  <a href="" class="pages__arrow icon-arrow"></a>
+  <div class="pages__number">
+    <a href="" class="pages__number-item pages__number-item--active">1</a>
+    <a href="" class="pages__number-item">2</a>
+    <a href="" class="pages__number-item">3</a>
+    <a href="" class="pages__number-item">...</a>
+    <a href="" class="pages__number-item">10</a>
+  </div>
+  <a href="" class="pages__arrow icon-arrow"></a>
+</div>
+<style is:global lang="scss">
+  .pages {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    margin-top: 36px;
+    &__arrow {
+      color: #281d15;
+      font-size: 10px;
+      transition: color $transition;
+      &:last-child {
+        transform: rotate(-180deg);
+      }
+      @include hover {
+        &:hover {
+          color: #c26733;
+        }
+      }
+    }
+
+    &__number {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      &-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        color: #281d15;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 20px;
+        transition: color $transition;
+        @include hover {
+          &:hover {
+            color: #c26733;
+          }
+        }
+        &--active {
+          pointer-events: none;
+          background-color: #c26733;
+          color: #ffffff;
+        }
+      }
+    }
+  }
+  @include laptop {
+  }
+  @include tablet {
+  }
+  @include phone {
+  }
+</style>

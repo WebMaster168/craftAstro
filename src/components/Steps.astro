@@ -1,0 +1,123 @@
+---
+const steps: { title: string; photo: string }[] = [
+  {
+    title: "Проектирование",
+    photo: "/img/Engineering.svg",
+  },
+  {
+    title: "Составление сметы",
+    photo: "/img/Clipboard.svg",
+  },
+  {
+    title: "Заключение договора",
+    photo: "/img/Handshake.svg",
+  },
+  {
+    title: "Закупка стройматериалов",
+    photo: "/img/Material.svg",
+  },
+  {
+    title: "Изготовление конструкций",
+    photo: "/img/Construction.svg",
+  },
+  {
+    title: "Подготовка территории и монтаж конструкций ",
+    photo: "/img/Preparation.svg",
+  },
+  {
+    title: "Финишная отделка",
+    photo: "/img/Finishing.svg",
+  },
+  {
+    title: "Подписание актов выполненных работ",
+    photo: "/img/Success.svg",
+  },
+]
+---
+
+<section class="steps section">
+  <div class="steps__container">
+    <h2 class="subtitle">Как мы работаем</h2>
+    <div class="steps__cards">
+      {
+        steps.map(({ title, photo }, index) => (
+          <div class="steps__cards-item">
+            <div class="steps__cards-texts">
+              <div class="steps__cards-num">0{index + 1}</div>
+              <div class="steps__cards-title">{title}</div>
+            </div>
+            <div class="steps__cards-bg">
+              <img src={photo} alt="" class="steps__cards-photo" />
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style is:global lang="scss">
+  .steps {
+    @include section;
+    &__container {
+      grid-area: center;
+    }
+
+    &__cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: fluid(20px, 30px);
+      &-item {
+        display: flex;
+        min-height: fluid(180px, 220px);
+      }
+      &-texts {
+        width: 66%;
+        background-color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: fluid(20px, 24px);
+        padding-top: 10px;
+      }
+      &-num {
+        color: #f1e2da;
+        font-size: fluid(52px, 72px);
+        font-weight: 800;
+        line-height: fluid(68px, 88px);
+      }
+      &-title {
+        color: #281d15;
+        font-size: fluid(18px, 20px);
+        font-weight: 700;
+        line-height: fluid(20px, 22px);
+      }
+      &-bg {
+        width: 34%;
+        background-color: #ffefe6;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      &-photo {
+        object-fit: contain;
+        width: fluid(50px, 64px);
+        height: fluid(50px, 64px);
+      }
+    }
+  }
+  @include laptop {
+    .steps {
+      &__cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+  @include phone {
+    .steps {
+      &__cards {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+</style>

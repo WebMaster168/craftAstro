@@ -1,0 +1,16 @@
+---
+import Layout from "@components/Layout.astro"
+import Breadcrumbs from "@components/Breadcrumbs.astro"
+import Information from "@components/Information.astro"
+import Steps from "@components/Steps.astro"
+import Feedback from "@components/Feedback.astro"
+
+const items = ["Главная", "Услуги / Каталог продукции "]
+---
+
+<Layout title="Магазины из сэндвича">
+  <Breadcrumbs {items} last="Магазины из сэндвича" />
+  <Information pages="services" />
+  <Steps />
+  <Feedback />
+</Layout>

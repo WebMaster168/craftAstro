@@ -1,0 +1,69 @@
+<div class="burger"><span></span></div>
+<style is:global lang="scss">
+  .burger {
+    display: none;
+    position: relative;
+    width: 33px;
+    height: 25px;
+    &::before,
+    &::after {
+      content: "";
+      background: #c26733;
+      border-radius: 5px;
+      position: absolute;
+      width: 100%;
+      height: 4px;
+      right: 0;
+      top: 10px;
+      transition: $transition;
+    }
+    &::after {
+      top: 20px;
+    }
+    &::before {
+      width: 100%;
+    }
+    span {
+      content: "";
+      background: #c26733;
+      border-radius: 5px;
+      position: absolute;
+      right: 0;
+      width: 100%;
+      height: 4px;
+      transition: $transition;
+    }
+    &--open {
+      &::before {
+        opacity: 0;
+      }
+      &::after {
+        width: 100%;
+        transform: rotate(-45deg) translate(5px, -10px);
+      }
+      span {
+        width: 100%;
+        transform: rotate(45deg) translate(4px, 9px);
+      }
+    }
+  }
+  @include laptop {
+    .burger {
+      display: block;
+    }
+  }
+</style>
+<script>
+  let burger = document.querySelector(".burger")
+  if (window.innerWidth <= 992 && burger) {
+    burger.addEventListener("click", function () {
+      burger.classList.toggle("burger--open")
+      document.querySelector(".menu")?.classList.toggle("menu--open")
+      if (document.querySelector(".menu--open")) {
+        document.getElementsByTagName("html")[0].style.overflow = "hidden"
+      } else {
+        document.getElementsByTagName("html")[0].style.overflow = "auto"
+      }
+    })
+  }
+</script>

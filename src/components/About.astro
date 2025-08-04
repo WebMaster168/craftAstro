@@ -1,0 +1,56 @@
+<section class="about section">
+  <div class="about__container">
+    <div class="about__info">
+      <h1 class="title title--mb">О компании</h1>
+      <div class="about__info-container">
+        <p>
+          Наша организация опираясь на многолетний опыт в строительстве может произвести полный цикл работ. Начиная от
+          проектирования, возведения здания, планировки территории с последующей асфальтировкой, бетонных работ
+          основания, прокладки коммуникаций(наружных и внутренних) и финишной отделки любого уровня сложности.
+        </p>
+        <p>
+          Т.е мы можем взять все возникающие вопросы от 0 уровня до финишной отделки, и вам не придется общаться с кучей
+          субподрядчиков, спорящих друг с другом.
+        </p>
+      </div>
+    </div>
+    <img src="/img/object.png" alt="" class="about__photo" />
+  </div>
+</section>
+<style is:global lang="scss">
+  .about {
+    @include section;
+    &__container {
+      grid-area: center;
+      display: flex;
+      gap: fluid(60px, 120px);
+    }
+    &__info {
+      &-container {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        font-size: fluid(16px, 18px);
+        line-height: fluid(22px, 28px);
+        color: #5a5a5a;
+      }
+    }
+
+    &__photo {
+      width: fluid(450px, 527px);
+      height: fluid(300px, 400px);
+      object-fit: cover;
+    }
+  }
+  @include laptop {
+    .about {
+      &__container {
+        flex-direction: column;
+        gap: 30px;
+      }
+      &__info {
+        width: 100%;
+      }
+    }
+  }
+</style>

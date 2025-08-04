@@ -1,0 +1,36 @@
+<form action="" class="SearchForm">
+  <input class="SearchForm__input" type="text" placeholder="Поиск по сайту" />
+  <button type="submit" class="SearchForm__btn icon-search"></button>
+</form>
+<style is:global lang="scss">
+  .SearchForm {
+    width: 230px;
+    border-bottom: 1px solid #8a8a8a;
+    padding-bottom: 10px;
+    display: flex;
+    &__input {
+      width: 98%;
+      outline: none;
+      color: #fff;
+      background: transparent;
+      font-size: 14px;
+      line-height: 18px;
+      &::placeholder {
+        color: #8a8a8a;
+        font-family: "Montserrat", sans-serif;
+      }
+    }
+    &__btn {
+      font-size: 20px;
+      color: #8a8a8a;
+    }
+  }
+  @include laptop {
+    .SearchForm {
+      display: none;
+      &__input {
+        color: #8a8a8a;
+      }
+    }
+  }
+</style>

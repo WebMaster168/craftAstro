@@ -1,0 +1,65 @@
+---
+interface Props {
+  href?: string
+  textColor?: "black"
+  icon?: string
+  iconColor?: string
+  variant?: string
+}
+
+const { href = undefined, textColor, icon = "phone", iconColor, variant } = Astro.props
+---
+
+<a
+  href={icon == "phone" ? `tel:${href}` : icon == "mail" ? `mailto:${href}` : href}
+  class:list={["link", variant ? `link--${variant}` : ""]}>
+  <div class:list={["link__icon", iconColor ? `link__icon--${iconColor}` : "", `icon-${icon}`]}></div>
+  <div class:list={["link__text", textColor ? `link__text--${textColor}` : ""]}><slot /></div>
+</a>
+
+<style is:global lang="scss">
+  .link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    &--block {
+      pointer-events: none;
+    }
+    @include hover {
+      &:hover {
+        & .link__text {
+          opacity: 0.8;
+        }
+      }
+    }
+    &__icon {
+      color: #fff;
+      font-size: 24px;
+      transition: color $transition;
+      &--orange {
+        color: #c26733;
+      }
+    }
+    &__text {
+      font-weight: 700;
+      font-size: fluid(16px, 18px);
+      line-height: 22px;
+      color: #fff;
+      transition: opacity $transition;
+      &--black {
+        color: #281d15;
+      }
+    }
+  }
+  @include laptop {
+    .link {
+      &--header {
+        display: none;
+      }
+    }
+  }
+  @include tablet {
+  }
+  @include phone {
+  }
+</style>

@@ -1,0 +1,16 @@
+---
+import Layout from "@components/Layout.astro"
+import Breadcrumbs from "@components/Breadcrumbs.astro"
+import AboutBlock from "@components/About.astro"
+import Advantages from "@components/Advantages.astro"
+import Feedback from "@components/Feedback.astro"
+
+const items = ["Главная"]
+---
+
+<Layout title="О компании">
+  <Breadcrumbs {items} last="О компании" />
+  <AboutBlock />
+  <Advantages />
+  <Feedback />
+</Layout>

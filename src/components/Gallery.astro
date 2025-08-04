@@ -1,0 +1,80 @@
+---
+const photos: string[] = [
+  "/img/object.png",
+  "/img/object.png",
+  "/img/object.png",
+  "/img/object.png",
+  "/img/object.png",
+  "/img/object.png",
+  "/img/object.png",
+  "/img/object.png",
+  "/img/object.png",
+  "/img/object.png",
+  "/img/object.png",
+  "/img/object.png",
+]
+---
+
+<section class="gallery section">
+  <div class="gallery__container">
+    <h2 class="subtitle subtitle--size">Галерея проекта</h2>
+    <div class="gallery__photos">
+      {
+        photos.map(item => (
+          <a href="/img/object.png" class="gallery__photos-popup fanGallery" data-fancybox="gallery">
+            <img src="/img/object.png" alt="" class="gallery__photos-img" />
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style is:global lang="scss">
+  .gallery {
+    @include section;
+    &__container {
+      grid-area: center;
+    }
+    &__photos {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      &-popup {
+        width: 100%;
+      }
+      &-img {
+        width: 100%;
+        height: fluid(180px, 240px);
+        object-fit: cover;
+      }
+    }
+  }
+  @include laptop {
+    .gallery {
+      &__photos {
+        &-img {
+          height: 120px;
+        }
+      }
+    }
+  }
+  @include tablet {
+    .gallery {
+      &__photos {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  }
+  @include phone {
+    .gallery {
+      &__photos {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+</style>
+<script>
+  import { Fancybox } from "@fancyapps/ui"
+  Fancybox.bind(".fanGallery", {})
+</script>

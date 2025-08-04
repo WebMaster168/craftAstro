@@ -1,0 +1,20 @@
+---
+import CardGrid from "@components/CardGrid.astro"
+import { cardsTitles } from "@components/Build.astro"
+---
+
+<section class="catalog section">
+    <div class="catalog__wrapper">
+        <h1 class="title">Услуги / Каталог продукции</h1>
+        <CardGrid {cardsTitles} />
+    </div>
+</section>
+
+<style is:global lang="scss">
+    .catalog {
+        @include section;
+        &__wrapper {
+            grid-area: center;
+        }
+    }
+</style>

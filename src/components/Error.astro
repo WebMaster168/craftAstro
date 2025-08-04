@@ -1,0 +1,61 @@
+---
+import Btn from "./Btn.astro"
+---
+
+<section class="error">
+  <div class="error__container">
+    <div class="error__info">
+      <div class="title title--mb">Данная Страница не найдена!</div>
+      <div class="error__text">
+        Возможно, вы перешли по ссылке, в которой была допущена ошибка, или ресурс был удален.
+      </div>
+      <Btn href="#">На главную</Btn>
+    </div>
+    <div class="error__num">404</div>
+  </div>
+</section>
+
+<style is:global lang="scss">
+  .error {
+    @include section;
+    margin-bottom: fluid(175px, 240px);
+    &__container {
+      grid-area: center;
+      display: flex;
+      gap: fluid(65px, 125px);
+    }
+
+    &__info {
+      width: 50%;
+    }
+
+    &__text {
+      margin-bottom: fluid(20px, 40px);
+      color: #5a5a5a;
+      font-size: 18px;
+      line-height: 28px;
+    }
+
+    &__num {
+      color: #c26633;
+      font-size: fluid(180px, 260px);
+      font-weight: 800;
+      line-height: fluid(205px, 325px);
+    }
+  }
+  @include tablet {
+    .error {
+      margin-bottom: 30px;
+      &__container {
+        flex-direction: column;
+        gap: 30px;
+      }
+      &__info {
+        width: 100%;
+      }
+      &__num {
+        font-size: 165px;
+      }
+    }
+  }
+</style>

@@ -1,0 +1,161 @@
+---
+const сhoose: { title: string; text: string; icon: string }[] = [
+    {
+        title: "Услуга «под ключ»: от проектирования до монтажа",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        icon: "/img/ServiceTool.svg",
+    },
+    {
+        title: "Гибкая система оплаты",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        icon: "/img/Coin.svg",
+    },
+    {
+        title: "Опыт более 15 лет",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        icon: "/img/Quality.svg",
+    },
+    {
+        title: "Любые формы оплаты: с НДС и без НДС",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        icon: "/img/Payment.svg",
+    },
+    {
+        title: "Работаем с юридическими лицами и частными заказчиками",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        icon: "/img/Company.svg",
+    },
+    {
+        title: "Гарантия на всю продукцию – 3 года",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        icon: "/img/Warranty.svg",
+    },
+]
+---
+
+<section class="сhoose section">
+    <img src="/img/bg.png" alt="" class="сhoose__bg" />
+    <div class="сhoose__container">
+        <h2 class="subtitle subtitle--white subtitle--mb">Почему нас выбирают</h2>
+        <div class="сhoose__inner">
+            {
+                сhoose.map(({ title, text, icon }, index) => (
+                    <div class="сhoose__item">
+                        <div class="сhoose__item-bg">
+                            <img src={icon} alt="" class="сhoose__item-icon" />
+                        </div>
+                        <div class="сhoose__item-wrapper">
+                            <p class="сhoose__item-number">0{index + 1}</p>
+                            <div class="сhoose__item-text">
+                                <div class="сhoose__item-title">{title}</div>
+                                <p class="сhoose__item-description">{text}</p>
+                            </div>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>
+
+<style is:global lang="scss">
+    .сhoose {
+        @include section;
+        background-color: #1f0f06cc;
+        padding-bottom: fluid(60px, 120px);
+        padding-top: fluid(60px, 120px);
+        position: relative;
+        &__bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.3;
+            object-fit: cover;
+            filter: grayscale(100%);
+            z-index: -1;
+        }
+        &__container {
+            grid-area: center;
+        }
+        &__inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: fluid(15px, 30px);
+        }
+        &__item {
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: fluid(350px, 430px);
+            &-bg {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #ffefe6;
+                width: fluid(70px, 100px);
+                height: fluid(70px, 100px);
+                margin-bottom: fluid(0px, 60px);
+            }
+            &-icon {
+                width: fluid(30px, 50px);
+                height: fluid(30px, 50px);
+            }
+            &-wrapper {
+                padding-left: 24px;
+                padding-right: 24px;
+                padding-bottom: 24px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: fluid(240px, 270px);
+            }
+            &-number {
+                color: #f1e2da;
+                font-size: fluid(52px, 72px);
+                font-weight: 800;
+                line-height: fluid(68px, 88px);
+            }
+            &-title {
+                color: #281d15;
+                font-size: fluid(16px, 20px);
+                font-weight: 700;
+                line-height: fluid(18px, 22px);
+                margin-bottom: fluid(12px, 16px);
+            }
+            &-description {
+                color: #5a5a5a;
+                font-size: fluid(14px, 16px);
+                line-height: fluid(22px, 24px);
+                -webkit-line-clamp: 4;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+        }
+    }
+    @include laptop {
+        .сhoose {
+            padding-top: 30px;
+            padding-bottom: 30px;
+            &__inner {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    }
+    @include tablet {
+        .сhoose {
+            &__inner {
+                grid-template-columns: 1fr;
+            }
+            &__item {
+                min-height: 350px;
+                &-wrapper {
+                    height: auto;
+                }
+            }
+        }
+    }
+</style>

@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Главная</title>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="stylesheet" href="./css/swiper-bundle.css" />
+    <link rel="stylesheet" href="./css/fancybox.css" />
+    <link rel="stylesheet" href="./css/accordion.css" />
+    <link rel="stylesheet" href="./css/normalize.css" />
+    <link rel="stylesheet" href="./css/icon.css" />
+    <link rel="stylesheet" href="./css/custom-style.css?v=0.80891324" />
+    <script type="module" src="./js/module.js?v=0.80891324"></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__container">
+        <div class="header__container-wrapper">
+          <div class="header__wrapper">
+            <a class="header__logo" href="#"><img src="./img/logo.svg" alt="" /></a>
+            <form action="" class="SearchForm">
+              <input class="SearchForm__input" type="text" placeholder="Поиск по сайту" />
+              <button type="submit" class="SearchForm__btn icon-search"></button>
+            </form>
+          </div>
+          <div class="header__contacts">
+            <a href="mailto:example@yandex.ru" class="link">
+              <div class="link__icon icon-mail"></div>
+              <div class="link__text">example@yandex.ru</div>
+            </a>
+            <a href="tel:+79001000000" class="link">
+              <div class="link__icon icon-phone"></div>
+              <div class="link__text">+7 (900) 100-00-00</div>
+            </a>
+          </div>
+          <div class="burger"><span></span></div>
+        </div>
+        <nav class="navigation">
+          <ul class="navigation__list">
+            <li class="navigation__list-item"><a class="navigation__list-link" href="#">Главная</a></li>
+            <li class="navigation__list-item"><a class="navigation__list-link" href="#">О компании</a></li>
+            <li class="navigation__list-item"><a class="navigation__list-link" href="#">Услуги / Каталог продукции</a></li>
+            <li class="navigation__list-item"><a class="navigation__list-link" href="#">Готовые объекты</a></li>
+            <li class="navigation__list-item"><a class="navigation__list-link" href="#">Блог</a></li>
+            <li class="navigation__list-item"><a class="navigation__list-link" href="#">Контакты</a></li>
+          </ul>
+          <a href="#application" class="btn btn--nav modalbox">Заказать бесплатную консультацию</a>
+        </nav>
+      </div>
+    </header>
+    <div class="menu">
+      <div class="menu__container">
+        <div class="menu__container-box">
+          <form action="" class="SearchForm">
+            <input class="SearchForm__input" type="text" placeholder="Поиск по сайту" />
+            <button type="submit" class="SearchForm__btn icon-search"></button>
+          </form>
+          <nav class="navigation navigation--mobile">
+            <ul class="navigation__list">
+              <li class="navigation__list-item"><a class="navigation__list-link" href="#">Главная</a></li>
+              <li class="navigation__list-item"><a class="navigation__list-link" href="#">О компании</a></li>
+              <li class="navigation__list-item"><a class="navigation__list-link" href="#">Услуги / Каталог продукции</a></li>
+              <li class="navigation__list-item"><a class="navigation__list-link" href="#">Готовые объекты</a></li>
+              <li class="navigation__list-item"><a class="navigation__list-link" href="#">Блог</a></li>
+              <li class="navigation__list-item"><a class="navigation__list-link" href="#">Контакты</a></li>
+            </ul>
+            <a href="#application" class="btn btn--nav modalbox">Заказать бесплатную консультацию</a>
+          </nav>
+        </div>
+        <div class="menu__container-box">
+          <a href="mailto:example@yandex.ru" class="link">
+            <div class="link__icon link__icon--orange icon-mail"></div>
+            <div class="link__text link__text--black">example@yandex.ru</div>
+          </a>
+          <a href="tel:+79001000000" class="link">
+            <div class="link__icon link__icon--orange icon-phone"></div>
+            <div class="link__text link__text--black">+7 (900) 100-00-00</div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <section class="hero section">
+      <img src="./img/bg.png" alt="" class="hero__photo" />
+      <div class="hero__container">
+        <div class="hero__info">
+          <h1 class="title hero__title">Быстровозводимые здания из сэндвич панелей в Саратове</h1>
+          <a href="#cost" class="btn modalbox">Узнать стоимость</a>
+        </div>
+        <div class="hero__swiper swiper">
+          <div class="swiper-wrapper">
+            <div class="hero__swiper-slide swiper-slide"><img src="./img/Image.jpg" /></div>
+            <div class="hero__swiper-slide swiper-slide"><img src="./img/Image.jpg" /></div>
+            <div class="hero__swiper-slide swiper-slide"><img src="./img/Image.jpg" /></div>
+            <div class="hero__swiper-slide swiper-slide"><img src="./img/Image.jpg" /></div>
+          </div>
+          <div class="hero__btns">
+            <div class="hero__btn hero__btnPrev swiper-button-prev icon-arrow"></div>
+            <div class="hero__btn hero__btnNext swiper-button-next icon-arrow"></div>
+          </div>
+          <div class="hero__pagination swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+    <section class="build section">
+      <div class="build__container">
+        <div class="build__description">
+          <h2 class="subtitle">Мы построим следующие объекты по Вашим размерам</h2>
+          <p class="build__description-text">Строим быстровозводимые здания и ангары и проектируем здания различных видов предназначения , склады, строения, сооружения под различные задачи. Можем рассмотреть строительство зданий из любых материалов.</p>
+          <p class="build__description-subtitle">В работу берем объекты от 200 м2</p>
+        </div>
+        <div class="cardGrid">
+          <a href="##" class="card">
+            <img src="./img/itemBg.jpg" alt="" class="card__photo" />
+            <h3 class="card__title">Магазины из сэндвича</h3>
+          </a>
+          <a href="##" class="card">
+            <img src="./img/itemBg.jpg" alt="" class="card__photo" />
+            <h3 class="card__title">Производственные помещения</h3>
+          </a>
+          <a href="##" class="card">
+            <img src="./img/itemBg.jpg" alt="" class="card__photo" />
+            <h3 class="card__title">Станции технического обслуживания</h3>
+          </a>
+          <a href="##" class="card">
+            <img src="./img/itemBg.jpg" alt="" class="card__photo" />
+            <h3 class="card__title">Быстровозводимые ангары из сэндвич панелей</h3>
+          </a>
+          <a href="##" class="card">
+            <img src="./img/itemBg.jpg" alt="" class="card__photo" />
+            <h3 class="card__title">Строительство складов и ангаров</h3>
+          </a>
+          <a href="##" class="card">
+            <img src="./img/itemBg.jpg" alt="" class="card__photo" />
+            <h3 class="card__title">Строительство автомоек</h3>
+          </a>
+          <a href="##" class="card">
+            <img src="./img/itemBg.jpg" alt="" class="card__photo" />
+            <h3 class="card__title">Строительство торговых павильонов</h3>
+          </a>
+          <a href="##" class="card">
+            <img src="./img/itemBg.jpg" alt="" class="card__photo" />
+            <h3 class="card__title">Строительство овощехранилищ</h3>
+          </a>
+          <a href="##" class="card">
+            <img src="./img/itemBg.jpg" alt="" class="card__photo" />
+            <h3 class="card__title">Строительство холодных и утепленных складов и ангаров под ключ</h3>
+          </a>
+          <a href="##" class="card">
+            <img src="./img/itemBg.jpg" alt="" class="card__photo" />
+            <h3 class="card__title">Монтаж металлоконструкций</h3>
+          </a>
+          <a href="##" class="card">
+            <img src="./img/itemBg.jpg" alt="" class="card__photo" />
+            <h3 class="card__title">Быстровозводимые ангары из сэндвич панелей</h3>
+          </a>
+          <a href="##" class="card">
+            <img src="./img/itemBg.jpg" alt="" class="card__photo" />
+            <h3 class="card__title">Быстровозводимые здания из сэндвич панелей</h3>
+          </a>
+          <a href="##" class="card">
+            <img src="./img/itemBg.jpg" alt="" class="card__photo" />
+            <h3 class="card__title">Быстровозводимые дома</h3>
+          </a>
+          <a href="##" class="card">
+            <img src="./img/itemBg.jpg" alt="" class="card__photo" />
+            <h3 class="card__title">Быстровозводимые склады из сэндвич панелей</h3>
+          </a>
+        </div>
+      </div>
+    </section>
+    <section class="сhoose section">
+      <img src="./img/bg.png" alt="" class="сhoose__bg" />
+      <div class="сhoose__container">
+        <h2 class="subtitle subtitle--white subtitle--mb">Почему нас выбирают</h2>
+        <div class="сhoose__inner">
+          <div class="сhoose__item">
+            <div class="сhoose__item-bg"><img src="./img/ServiceTool.svg" alt="" class="сhoose__item-icon" /></div>
+            <div class="сhoose__item-wrapper">
+              <p class="сhoose__item-number">01</p>
+              <div class="сhoose__item-text">
+                <div class="сhoose__item-title">Услуга «под ключ»: от проектирования до монтажа</div>
+                <p class="сhoose__item-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              </div>
+            </div>
+          </div>
+          <div class="сhoose__item">
+            <div class="сhoose__item-bg"><img src="./img/Coin.svg" alt="" class="сhoose__item-icon" /></div>
+            <div class="сhoose__item-wrapper">
+              <p class="сhoose__item-number">02</p>
+              <div class="сhoose__item-text">
+                <div class="сhoose__item-title">Гибкая система оплаты</div>
+                <p class="сhoose__item-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              </div>
+            </div>
+          </div>
+          <div class="сhoose__item">
+            <div class="сhoose__item-bg"><img src="./img/Quality.svg" alt="" class="сhoose__item-icon" /></div>
+            <div class="сhoose__item-wrapper">
+              <p class="сhoose__item-number">03</p>
+              <div class="сhoose__item-text">
+                <div class="сhoose__item-title">Опыт более 15 лет</div>
+                <p class="сhoose__item-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              </div>
+            </div>
+          </div>
+          <div class="сhoose__item">
+            <div class="сhoose__item-bg"><img src="./img/Payment.svg" alt="" class="сhoose__item-icon" /></div>
+            <div class="сhoose__item-wrapper">
+              <p class="сhoose__item-number">04</p>
+              <div class="сhoose__item-text">
+                <div class="сhoose__item-title">Любые формы оплаты: с НДС и без НДС</div>
+                <p class="сhoose__item-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              </div>
+            </div>
+          </div>
+          <div class="сhoose__item">
+            <div class="сhoose__item-bg"><img src="./img/Company.svg" alt="" class="сhoose__item-icon" /></div>
+            <div class="сhoose__item-wrapper">
+              <p class="сhoose__item-number">05</p>
+              <div class="сhoose__item-text">
+                <div class="сhoose__item-title">Работаем с юридическими лицами и частными заказчиками</div>
+                <p class="сhoose__item-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              </div>
+            </div>
+          </div>
+          <div class="сhoose__item">
+            <div class="сhoose__item-bg"><img src="./img/Warranty.svg" alt="" class="сhoose__item-icon" /></div>
+            <div class="сhoose__item-wrapper">
+              <p class="сhoose__item-number">06</p>
+              <div class="сhoose__item-text">
+                <div class="сhoose__item-title">Гарантия на всю продукцию – 3 года</div>
+                <p class="сhoose__item-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="questions section">
+      <div class="questions__container">
+        <h2 class="subtitle">Часто задаваемые вопросы</h2>
+        <div class="questions__text">Мы собрали часто задаваемые вопросы наших клиентов и предоставили развернутые ответы. Если у вас остались вопросы, не стесняйтесь обращаться к нам напрямую.</div>
+        <div class="accordion">
+          <div class="accordion__container">
+            <div class="accordion__item ac">
+              <div class="ac-trigger"><div class="accordion__title ac-title">Каковы преимущества быстровозводимых зданий?</div></div>
+              <div class="ac-panel">
+                <div class="accordion__content ac-content">
+                  Заказ ремонта квартиры под ключ под ключ в Москве – это удобно и выгодно. За фиксированную сумму вы получаете полный комплекс услуг — от разработки дизайн-проекта до чистовой отделки. Такой подход помогает избежать выхода из запланированного бюджета, а также позволяет
+                  контролировать процесс выполнения работ и соблюдение сроков, поэтому ремонт не затянется в течение года. Если вы хотите получить качественный и гарантированный результат, заказывайте ремонт квартиры под ключ в нашей компании. Мы профессионально выполним работы и вы будете всегда на
+                  связи с нашим менеджером.
+                </div>
+              </div>
+            </div>
+            <div class="accordion__item ac">
+              <div class="ac-trigger"><div class="accordion__title ac-title">Насколько прочен и безопасен каркас зданий?</div></div>
+              <div class="ac-panel">
+                <div class="accordion__content ac-content">
+                  Заказ ремонта квартиры под ключ под ключ в Москве – это удобно и выгодно. За фиксированную сумму вы получаете полный комплекс услуг — от разработки дизайн-проекта до чистовой отделки. Такой подход помогает избежать выхода из запланированного бюджета, а также позволяет
+                  контролировать процесс выполнения работ и соблюдение сроков, поэтому ремонт не затянется в течение года. Если вы хотите получить качественный и гарантированный результат, заказывайте ремонт квартиры под ключ в нашей компании. Мы профессионально выполним работы и вы будете всегда на
+                  связи с нашим менеджером.
+                </div>
+              </div>
+            </div>
+            <div class="accordion__item ac">
+              <div class="ac-trigger"><div class="accordion__title ac-title">Сколько времени займет строительство здания с учетом времени доставки?</div></div>
+              <div class="ac-panel">
+                <div class="accordion__content ac-content">
+                  Заказ ремонта квартиры под ключ под ключ в Москве – это удобно и выгодно. За фиксированную сумму вы получаете полный комплекс услуг — от разработки дизайн-проекта до чистовой отделки. Такой подход помогает избежать выхода из запланированного бюджета, а также позволяет
+                  контролировать процесс выполнения работ и соблюдение сроков, поэтому ремонт не затянется в течение года. Если вы хотите получить качественный и гарантированный результат, заказывайте ремонт квартиры под ключ в нашей компании. Мы профессионально выполним работы и вы будете всегда на
+                  связи с нашим менеджером.
+                </div>
+              </div>
+            </div>
+            <div class="accordion__item ac">
+              <div class="ac-trigger"><div class="accordion__title ac-title">На какую нагрузку рассчитаны здания (ветровую, снеговую и т. д.)?</div></div>
+              <div class="ac-panel">
+                <div class="accordion__content ac-content">
+                  Заказ ремонта квартиры под ключ под ключ в Москве – это удобно и выгодно. За фиксированную сумму вы получаете полный комплекс услуг — от разработки дизайн-проекта до чистовой отделки. Такой подход помогает избежать выхода из запланированного бюджета, а также позволяет
+                  контролировать процесс выполнения работ и соблюдение сроков, поэтому ремонт не затянется в течение года. Если вы хотите получить качественный и гарантированный результат, заказывайте ремонт квартиры под ключ в нашей компании. Мы профессионально выполним работы и вы будете всегда на
+                  связи с нашим менеджером.
+                </div>
+              </div>
+            </div>
+            <div class="accordion__item ac">
+              <div class="ac-trigger"><div class="accordion__title ac-title">Здания являются теплыми или холодными?</div></div>
+              <div class="ac-panel">
+                <div class="accordion__content ac-content">
+                  Заказ ремонта квартиры под ключ под ключ в Москве – это удобно и выгодно. За фиксированную сумму вы получаете полный комплекс услуг — от разработки дизайн-проекта до чистовой отделки. Такой подход помогает избежать выхода из запланированного бюджета, а также позволяет
+                  контролировать процесс выполнения работ и соблюдение сроков, поэтому ремонт не затянется в течение года. Если вы хотите получить качественный и гарантированный результат, заказывайте ремонт квартиры под ключ в нашей компании. Мы профессионально выполним работы и вы будете всегда на
+                  связи с нашим менеджером.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="feedback section">
+      <div class="feedback__container">
+        <img src="./img/bg.png" alt="" class="feedback__bg" />
+        <h2 class="feedback__title">Оставьте заявку на бесплатную консультацию</h2>
+        <div class="feedback__text">Наш специалист перезвонит в течение 10 минут и поможет найти оптимальное решение.</div>
+        <form action="" class="feedback__form">
+          <input type="text" name="name" class="feedback__form-input" placeholder="Имя" />
+          <input type="text" name="phone" class="feedback__form-input" placeholder="+7 (___) ___-__-__" />
+          <button type="submit" class="btn">Заказать звонок</button>
+          <div class="feedback__form-wrapper">
+            <input type="checkbox" class="feedback__form-checkbox" checked="" id="check" />
+            <label for="check" class="feedback__form-text">
+              Я согласен на обработку моих персональных данных и с условиями
+              <a href="">политики конфиденциальности</a>
+              .
+            </label>
+          </div>
+        </form>
+      </div>
+    </section>
+    <section class="contacts section">
+      <div class="contacts__container">
+        <div class="contacts__inner">
+          <div class="contacts__info">
+            <h2 class="subtitle">Свяжитесь с нами</h2>
+            <div class="contacts__item">
+              <div class="contacts__item-name">Контакты</div>
+              <a href="tel:+79001000000" class="link">
+                <div class="link__icon link__icon--orange icon-phone"></div>
+                <div class="link__text link__text--black">+7 (900) 100-00-00</div>
+              </a>
+              <a href="mailto:example@yandex.ru" class="link">
+                <div class="link__icon link__icon--orange icon-mail"></div>
+                <div class="link__text link__text--black">example@yandex.ru</div>
+              </a>
+            </div>
+            <div class="contacts__item">
+              <div class="contacts__item-name">Адрес</div>
+              <a href="javascript:myMap.setCenter([51.532879,46.021923]);myMap.setZoom(18)" class="link">
+                <div class="link__icon link__icon--orange icon-location"></div>
+                <div class="link__text link__text--black">г. Саратов, проспект Столыпина, д.54</div>
+              </a>
+            </div>
+            <div class="socials">
+              <p class="socials__name">Мы в социальных сетях</p>
+              <div class="socials__inner">
+                <a class="socials__icon icon-whats-app" href="#"></a>
+                <a class="socials__icon icon-vk" href="#"></a>
+                <a class="socials__icon icon-viber" href="#"></a>
+                <a class="socials__icon icon-telegram" href="#"></a>
+              </div>
+            </div>
+          </div>
+          <div class="contacts__map" id="map"></div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="footer__container">
+        <div class="footer__wrapper">
+          <div class="footer__info">
+            <div class="footer__block">
+              <div class="footer__block-box">
+                <a class="footer__logo" href="#"><img src="./img/logo.svg" alt="" /></a>
+                <p class="footer__text">ИНН: 7731347089</p>
+              </div>
+              <p class="footer__text">Все права защищены ©2024</p>
+            </div>
+            <div class="footer__list">
+              <div class="footer__list-box">
+                <div class="footer__list-title">Навигация</div>
+                <a href="" class="footer__list-link">Главная</a>
+                <a href="" class="footer__list-link">О компании</a>
+                <a href="" class="footer__list-link">Готовые объекты</a>
+                <a href="" class="footer__list-link">Блог</a>
+                <a href="" class="footer__list-link">Контакты</a>
+              </div>
+            </div>
+            <div class="footer__list">
+              <div class="footer__list-box">
+                <div class="footer__list-title">Разделы каталога</div>
+                <a href="" class="footer__list-link">Магазины из сэндвича</a>
+                <a href="" class="footer__list-link">Производственные помещения</a>
+                <a href="" class="footer__list-link">Станции технического обслуживания</a>
+                <a href="" class="footer__list-link">Быстровозводимые ангары из сэндвич панелей</a>
+                <a href="" class="footer__list-link">Строительство складов и ангаров</a>
+                <a href="" class="footer__list-link">Строительство автомоек</a>
+                <a href="" class="footer__list-link">Строительство торговых павильонов</a>
+                <a href="" class="footer__list-link">Строительство овощехранилищ</a>
+                <a href="" class="footer__list-link">Cтроительство холодных и утепленных складов и ангаров под ключ</a>
+                <a href="" class="footer__list-link">Монтаж металлоконструкций</a>
+                <a href="" class="footer__list-link">Быстровозводимые ангары из сэндвич панелей</a>
+                <a href="" class="footer__list-link">Быстровозводимые здания из сэндвич панелей</a>
+                <a href="" class="footer__list-link">Быстровозводимые дома</a>
+                <a href="" class="footer__list-link">Быстровозводимые склады из сэндвич панелей</a>
+              </div>
+              <a href="#" class="footer__text footer__text--link footer__text--mt">Политика конфиденциальности</a>
+            </div>
+            <div class="footer__contacts">
+              <div class="footer__contacts-box">
+                <div class="footer__contacts-links">
+                  <a href="tel:+79001000000" class="link">
+                    <div class="link__icon link__icon--orange icon-phone"></div>
+                    <div class="link__text">+7 (900) 100-00-00</div>
+                  </a>
+                  <a href="mailto:example@yandex.ru" class="link">
+                    <div class="link__icon link__icon--orange icon-mail"></div>
+                    <div class="link__text">example@yandex.ru</div>
+                  </a>
+                </div>
+                <p class="footer__contacts-city">г. Саратов, проспект Столыпина, д.54</p>
+                <div class="socials">
+                  <p class="socials__name">Мы в социальных сетях</p>
+                  <div class="socials__inner">
+                    <a class="socials__icon icon-whats-app" href="#"></a>
+                    <a class="socials__icon icon-vk" href="#"></a>
+                    <a class="socials__icon icon-viber" href="#"></a>
+                    <a class="socials__icon icon-telegram" href="#"></a>
+                  </div>
+                </div>
+              </div>
+              <div class="footer__mobileLinks">
+                <p class="footer__text">Все права защищены ©2024</p>
+                <a href="#" class="footer__text footer__text--link">Политика конфиденциальности</a>
+              </div>
+              <a href="https://spaceapp.ru/razrabotka" class="footer__develop">
+                <p class="footer__text footer__text--link">Разработка сайта</p>
+                <img src="./img/spaceapp.svg" alt="" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <div class="modal" id="application">
+      <div class="modal__container">
+        <h2 class="subtitle subtitle--white">Оставьте заявку</h2>
+        <form class="modal__form" id="modalForm">
+          <input type="text" name="name" required="" class="modal__form-input" placeholder="Имя" />
+          <input type="tel" name="phone" required="" class="modal__form-input" placeholder="+7 (___) ___-__-__" />
+          <button type="submit" form="modalForm" id="feedback_form_btn" class="btn btn--full">Заказать звонок</button>
+          <div class="modal__form-wrapper">
+            <input type="checkbox" class="modal__form-checkbox" checked="" id="checkModal" />
+            <label for="checkModal" class="modal__form-text">
+              Я согласен на обработку моих персональных данных и с условиями
+              <a href="">политики конфиденциальности</a>
+              .
+            </label>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="modal" id="cost">
+      <div class="modal__container">
+        <h2 class="subtitle subtitle--white">Узнать стоимость</h2>
+        <form class="modal__form" id="modalCost">
+          <input type="text" name="name" class="modal__form-input" placeholder="Имя" />
+          <input type="text" name="phone" class="modal__form-input" placeholder="+7 (___) ___-__-__" />
+          <button type="submit" form="modalCost" id="feedback_form_btn" class="btn btn--full">Узнать стоимость</button>
+          <div class="modal__form-wrapper">
+            <input type="checkbox" class="modal__form-checkbox" checked="" id="checkModal" />
+            <label for="checkModal" class="modal__form-text">
+              Я согласен на обработку моих персональных данных и с условиями
+              <a href="">политики конфиденциальности</a>
+              .
+            </label>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="modal" id="success">
+      <div class="modal__container">
+        <img src="./img/Check.png" alt="" class="modal__icon" />
+        <h2 class="subtitle subtitle--white">Спасибо за заявку!</h2>
+        <div class="modal__text">Наш специалист свяжется с вами в течение 10 минут и поможет найти оптимальное решение.</div>
+      </div>
+    </div>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" defer=""></script>
+    <script src="./js/map.js?v=0.80889966" defer=""></script>
+    <script src="./js/custom-script.js?v=0.80889966" defer=""></script>
+  </body>
+</html>

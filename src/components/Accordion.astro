@@ -1,0 +1,162 @@
+---
+import Btn from "./Btn.astro"
+
+interface Props {
+  items?: { title: string; text: string }[]
+}
+const { items } = Astro.props
+---
+
+<div class="accordion">
+  <div class="accordion__container">
+    {
+      items?.map(({ title, text }) => (
+        <div class="accordion__item ac">
+          <div class="ac-trigger">
+            <div class="accordion__title ac-title">{title}</div>
+          </div>
+          <div class="ac-panel">
+            <div class="accordion__content ac-content">{text}</div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<style is:global lang="scss">
+  .accordion {
+    &__item {
+      margin-top: unset;
+      border: unset;
+      padding: fluid(20px, 24px);
+      padding-left: fluid(16px, 20px);
+      padding-right: 0;
+      margin-bottom: 10px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    &__title {
+      font-family: "Montserrat", sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 22px;
+      color: #281d15;
+    }
+    .ac-trigger {
+      display: flex;
+      align-items: center;
+      padding: 0;
+      &::after {
+        content: "";
+        width: fluid(62px, 72px);
+        height: fluid(62px, 72px);
+        background-color: #c26733;
+        right: 0;
+      }
+      &::before {
+        content: "\e900";
+        font-family: "icomoon";
+        font-weight: 400;
+        font-size: 21px;
+        width: fluid(62px, 72px);
+        height: fluid(62px, 72px);
+        color: #fff;
+        position: absolute;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+        transition: all $transition;
+      }
+      &[aria-expanded="true"] {
+        &::before {
+          transform: rotate(45deg);
+        }
+      }
+    }
+    &__header {
+      &.ac-trigger {
+        flex-direction: column;
+        align-items: flex-start;
+        &::after {
+          top: 10px;
+        }
+      }
+    }
+    &__content {
+      padding-top: 20px;
+      padding-left: 20px;
+      width: 92%;
+      p {
+        b {
+          display: block;
+          font-size: fluid(14px, 16px);
+          margin-bottom: 8px;
+        }
+      }
+      b {
+        font-weight: 800;
+      }
+      ul {
+        margin-bottom: fluid(20px, 24px);
+        &:last-child {
+          margin-bottom: 0;
+        }
+        li {
+          position: relative;
+          padding-left: fluid(15px, 20px);
+          margin-bottom: 4px;
+          &::before {
+            content: "";
+            border-radius: 50%;
+            // background-color: $madium-dark-gray;
+            width: 2px;
+            height: 2px;
+            position: absolute;
+            left: fluid(7px, 10px);
+            top: 50%;
+            transform: translateY(-50%);
+          }
+        }
+      }
+    }
+  }
+  @include laptop {
+    .accordion {
+      &__title {
+        width: 75%;
+      }
+      &__content {
+        width: 90%;
+      }
+    }
+  }
+</style>
+
+<script>
+  //@ts-ignore
+  import Accordion from "accordion-js"
+
+  const accordion = document.querySelector(".accordion")
+
+  if (accordion) {
+    const accordions = accordion.querySelectorAll(".ac")
+
+    let opened: number[] = []
+
+    Array.from(accordions).forEach((ac, index) => {
+      if (ac.getAttribute("data-open") === "true") {
+        opened.push(index)
+      }
+    })
+
+    new Accordion(".accordion__container", {
+      duration: 380,
+      showMultiple: true,
+      openOnInit: opened,
+    })
+  }
+</script>

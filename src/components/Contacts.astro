@@ -1,0 +1,94 @@
+---
+import Link from "./Link.astro"
+import Socials from "./Socials.astro"
+
+interface Props {
+    pages?: "contacts" | "home"
+}
+const { pages } = Astro.props
+---
+
+<section class="contacts section">
+    <div class="contacts__container">
+        {pages == "contacts" && <h1 class="title">Контакты</h1>}
+        <div class="contacts__inner">
+            <div class="contacts__info">
+                {pages == "home" && <h2 class="subtitle">Свяжитесь с нами</h2>}
+                <div class="contacts__item">
+                    <div class="contacts__item-name">Контакты</div>
+                    <Link href="+79001000000" iconColor="orange" textColor="black">+7 (900) 100-00-00</Link>
+                    <Link href="example@yandex.ru" icon="mail" iconColor="orange" textColor="black"
+                        >example@yandex.ru</Link
+                    >
+                </div>
+                <div class="contacts__item">
+                    <div class="contacts__item-name">Адрес</div>
+                    <Link
+                        icon="location"
+                        iconColor="orange"
+                        textColor="black"
+                        href="javascript:myMap.setCenter([51.532879,46.021923]);myMap.setZoom(18)">
+                        г. Саратов, проспект Столыпина, д.54
+                    </Link>
+                </div>
+                <Socials />
+            </div>
+            <div class="contacts__map" id="map"></div>
+        </div>
+    </div>
+</section>
+
+<style is:global lang="scss">
+    .contacts {
+        @include section;
+        &__container {
+            grid-area: center;
+        }
+        &__inner {
+            display: flex;
+        }
+        &__info {
+            padding: 40px;
+            background-color: #fff;
+            width: 50%;
+        }
+
+        &__item {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 32px;
+            &-name {
+                font-size: fluid(14px, 16px);
+                line-height: fluid(22px, 24px);
+                color: #9c9c9c;
+            }
+        }
+        &__map {
+            width: 55%;
+            height: fluid(400px, 500px);
+        }
+    }
+    @include laptop {
+        .contacts {
+            &__map {
+                height: 440px;
+            }
+        }
+    }
+    @include tablet {
+        .contacts {
+            &__inner {
+                flex-direction: column;
+            }
+            &__info {
+                width: 100%;
+                padding: 20px;
+            }
+            &__map {
+                width: 100%;
+                height: 400px;
+            }
+        }
+    }
+</style>

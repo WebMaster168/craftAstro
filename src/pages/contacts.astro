@@ -1,0 +1,14 @@
+---
+import Layout from "@components/Layout.astro"
+import Breadcrumbs from "@components/Breadcrumbs.astro"
+import Feedback from "@components/Feedback.astro"
+import ContactsConponent from "@components/Contacts.astro"
+
+const items = ["Главная"]
+---
+
+<Layout title="Контакты">
+  <Breadcrumbs {items} last="Контакты" />
+  <ContactsConponent pages="contacts" />
+  <Feedback contacts />
+</Layout>

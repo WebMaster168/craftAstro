@@ -1,0 +1,80 @@
+---
+interface Props {
+  href?: string
+  submit?: boolean
+  modal?: boolean
+  variant?: "nav" | "full"
+  form?: "modalForm" | "modalCost" | "" | ""
+  id?: "feedback_form_btn"
+}
+
+const { href = undefined, modal, submit = false, variant, form, id } = Astro.props
+
+const classList = ["btn", variant ? `btn--${variant}` : "", { modalbox: modal }]
+
+const Element = href ? "a" : submit ? "button" : "a"
+---
+
+<Element {href} type={submit ? "submit" : undefined} class:list={classList} {form} {id}>
+  <slot />
+</Element>
+
+<style is:global lang="scss">
+  .btn {
+    display: block;
+    position: relative;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 22px;
+    background-color: #c26733;
+    color: #ffffff;
+    text-align: center;
+    width: fluid(195px, 280px);
+    z-index: 1;
+    transition: all $transition;
+    &:after {
+      content: "";
+      width: 0%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-color: #281d15;
+      z-index: -1;
+      transition: width $transition;
+    }
+    &--nav {
+      width: 24%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding-left: fluid-screen(15px, 20px);
+      padding-right: fluid-screen(15px, 20px);
+      padding-top: 22px;
+      padding-bottom: 22px;
+      font-size: fluid-screen(13px, 14px);
+      font-weight: 600;
+      line-height: fluid-screen(16px, 18px);
+    }
+    &--full {
+      width: 100%;
+    }
+    @include hover {
+      &:hover {
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+  @include laptop {
+    .btn {
+      &--nav {
+        width: fit-content;
+      }
+    }
+  }
+</style>

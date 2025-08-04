@@ -1,0 +1,33 @@
+<div class="socials">
+  <p class="socials__name">Мы в социальных сетях</p>
+  <div class="socials__inner">
+    <a class="socials__icon icon-whats-app" href="#"></a>
+    <a class="socials__icon icon-vk" href="#"></a>
+    <a class="socials__icon icon-viber" href="#"></a>
+    <a class="socials__icon icon-telegram" href="#"></a>
+  </div>
+</div>
+<style is:global lang="scss">
+  .socials {
+    &__name {
+      font-size: fluid(14px, 16px);
+      line-height: fluid(22px, 24px);
+      color: #9c9c9c;
+      margin-bottom: 10px;
+    }
+    &__inner {
+      display: flex;
+      gap: 16px;
+    }
+    &__icon {
+      font-size: 20px;
+      color: #c26733;
+      transition: opacity $transition;
+      @include hover {
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+</style>

@@ -1,0 +1,168 @@
+---
+interface Props {
+  pages?: "services" | "objects"
+}
+const { pages } = Astro.props
+---
+
+{
+  pages === "objects" && (
+    <section class="information section">
+      <div class="information__container">
+        <h1 class="title title--mb">Производственный комплекс насосного оборудования</h1>
+        <div class="information__text">
+          Наша организация опираясь на многолетний опыт в строительстве может произвести полный цикл работ. Начиная от
+          проектирования, возведения здания, планировки территории с последующей асфальтировкой, бетонных работ
+          основания, прокладки коммуникаций(наружных и внутренних) и финишной отделки любого уровня сложности. Мы можем
+          взять все возникающие вопросы от 0 уровня до финишной отделки, и вам не придется общаться с кучей
+          субподрядчиков, спорящих друг с другом.
+        </div>
+        <div class="information__wrapper">
+          <img src="/img/objectDetail.png" alt="" class="information__photo" />
+          <div class="information__card">
+            <div class="information__card-title">Информация о проекте</div>
+            <div class="information__card-item">
+              <div class="information__card-name">Местоположение:</div>
+              <div class="information__card-val">г. Саратов, проспект Столыпина, д.54</div>
+            </div>
+            <div class="information__card-item">
+              <div class="information__card-name">Площадь объекта:</div>
+              <div class="information__card-val">3350 м2</div>
+            </div>
+            <div class="information__card-item">
+              <div class="information__card-name">Год:</div>
+              <div class="information__card-val">2024</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+{
+  pages === "services" && (
+    <section class="information section">
+      <div class="information__container">
+        <h1 class="title title--mb">Магазины из сэндвича</h1>
+        <div class="information__text">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+          est laborum.
+        </div>
+        <img src="/img/objectDetail.png" alt="" class="information__photo information__photo--size" />
+      </div>
+    </section>
+  )
+}
+<style is:global lang="scss">
+  .information {
+    @include section;
+    &__container {
+      grid-area: center;
+    }
+    &__text {
+      margin-bottom: 24px;
+      color: #5a5a5a;
+      font-size: fluid(16px, 18px);
+      line-height: fluid(25px, 28px);
+    }
+    &__wrapper {
+      position: relative;
+      padding-top: fluid(30px, 60px);
+    }
+
+    &__photo {
+      width: 100%;
+      height: fluid(450px, 530px);
+      object-fit: cover;
+      &--size {
+        height: fluid(300px, 424px);
+      }
+    }
+
+    &__card {
+      position: absolute;
+      right: fluid(30px, 60px);
+      top: 0px;
+      background-color: #c26733;
+      padding: fluid(20px, 24px);
+      width: 27%;
+      &-title {
+        color: #fff;
+        font-size: fluid(26px, 36px);
+        font-weight: 800;
+        line-height: fluid(40px, 50px);
+        margin-bottom: 16px;
+        text-transform: uppercase;
+      }
+      &-item {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: fluid(20px, 24px);
+        gap: 4px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      &-name {
+        color: #fff;
+        font-size: fluid(16px, 18px);
+        font-weight: 700;
+        line-height: fluid(18px, 22px);
+      }
+
+      &-val {
+        color: #fff;
+        font-size: fluid(14px, 16px);
+        line-height: fluid(20px, 24px);
+      }
+    }
+  }
+  @include laptop {
+    .information {
+      &__photo {
+        height: 350px;
+      }
+      &__card {
+        width: 35%;
+        &-title {
+          font-size: 22px;
+          line-height: 26px;
+        }
+      }
+    }
+  }
+  @include tablet {
+    .information {
+      &__photo {
+        height: 250px;
+      }
+      &__card {
+        width: 40%;
+        right: 10px;
+        &-title {
+          font-size: 22px;
+          line-height: 26px;
+        }
+      }
+    }
+  }
+  @include phone {
+    .information {
+      &__photo {
+        height: 150px;
+      }
+      &__card {
+        position: static;
+        width: 100%;
+        margin-top: 20px;
+      }
+      &__wrapper {
+        padding-top: 0;
+      }
+    }
+  }
+</style>

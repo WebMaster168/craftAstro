@@ -1,0 +1,106 @@
+---
+import normalize from "../styles/normalize.css?url"
+import swiper from "swiper/swiper-bundle.css?url"
+import icon from "../styles/icon.css?url"
+import fancybox from "@fancyapps/ui/dist/fancybox/fancybox.css?url"
+import accordion from "accordion-js/dist/accordion.css?url"
+import Header from "./Header.astro"
+import Footer from "../components/Footer.astro"
+
+interface Props {
+  title: string
+}
+
+const { title } = Astro.props
+
+const version = String(Date.now()).substring(5)
+---
+
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href={swiper} />
+    <link rel="stylesheet" href={fancybox} />
+    <link rel="stylesheet" href={accordion} />
+    <link rel="stylesheet" href={normalize} />
+    <link rel="stylesheet" href={icon} />
+  </head>
+  <body>
+    <Header />
+    <slot />
+    <Footer />
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" defer></script>
+    <script is:inline src=`/js/map.js?v=0.${version}` defer></script>
+    <script is:inline src=`/js/custom-script.js?v=0.${version}` defer></script>
+  </body>
+</html>
+
+<style is:global lang="scss">
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  input,
+  textarea {
+    outline: none;
+  }
+  @font-face {
+    font-family: "Montserrat";
+    src: url("../fonts/Montserrat-VariableFont_wght.ttf") format("truetype");
+    font-style: normal;
+    font-display: swap;
+  }
+  body {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    background-color: #f5f5f5;
+  }
+  .section {
+    margin-bottom: fluid(60px, 120px);
+  }
+  .title {
+    text-transform: uppercase;
+    font-size: fluid(40px, 56px);
+    font-weight: 800;
+    line-height: fluid(40px, 70px);
+    color: #281d15;
+    margin-bottom: fluid(20px, 40px);
+    &--mb {
+      margin-bottom: fluid(14px, 24px);
+    }
+  }
+  .subtitle {
+    text-transform: uppercase;
+    font-size: fluid(28px, 44px);
+    font-weight: 800;
+    line-height: fluid(40px, 50px);
+    color: #281d15;
+    margin-bottom: fluid(14px, 24px);
+    &--size {
+      font-size: fluid(24px, 36px);
+    }
+    &--white {
+      color: #ffffff;
+    }
+    &--mb {
+      margin-bottom: fluid(30px, 40px);
+    }
+  }
+  @include laptop {
+    .title {
+      font-size: 26px;
+      line-height: 32px;
+    }
+    .subtitle {
+      font-size: 22px;
+      line-height: 28px;
+    }
+    .section {
+      margin-bottom: 30px;
+    }
+  }
+</style>

@@ -1,0 +1,287 @@
+---
+import Link from "./Link.astro"
+import Socials from "./Socials.astro"
+import Modal from "./Modal.astro"
+
+const nav: string[] = ["Главная", "О компании", "Готовые объекты", "Блог", "Контакты"]
+const catalog: string[] = [
+    "Магазины из сэндвича",
+    "Производственные помещения",
+    "Станции технического обслуживания",
+    "Быстровозводимые ангары из сэндвич панелей",
+    "Строительство складов и ангаров",
+    "Строительство автомоек",
+    "Строительство торговых павильонов",
+    "Строительство овощехранилищ",
+    "Cтроительство холодных и утепленных складов и ангаров под ключ",
+    "Монтаж металлоконструкций",
+    "Быстровозводимые ангары из сэндвич панелей",
+    "Быстровозводимые здания из сэндвич панелей",
+    "Быстровозводимые дома",
+    "Быстровозводимые склады из сэндвич панелей",
+]
+---
+
+<footer class="footer">
+    <div class="footer__container">
+        <div class="footer__wrapper">
+            <div class="footer__info">
+                <div class="footer__block">
+                    <div class="footer__block-box">
+                        <a class="footer__logo" href="#">
+                            <img src="/img/logo.svg" alt="" />
+                        </a>
+                        <p class="footer__text">ИНН: 7731347089</p>
+                    </div>
+                    <p class="footer__text">Все права защищены ©2024</p>
+                </div>
+                <div class="footer__list">
+                    <div class="footer__list-box">
+                        <div class="footer__list-title">Навигация</div>
+                        {
+                            nav.map(item => (
+                                <a href="" class="footer__list-link">
+                                    {item}
+                                </a>
+                            ))
+                        }
+                    </div>
+                </div>
+                <div class="footer__list">
+                    <div class="footer__list-box">
+                        <div class="footer__list-title">Разделы каталога</div>
+                        {
+                            catalog.map(item => (
+                                <a href="" class="footer__list-link">
+                                    {item}
+                                </a>
+                            ))
+                        }
+                    </div>
+                    <a href="#" class="footer__text footer__text--link footer__text--mt">Политика конфиденциальности</a>
+                </div>
+                <div class="footer__contacts">
+                    <div class="footer__contacts-box">
+                        <div class="footer__contacts-links">
+                            <Link href="+79001000000" iconColor="orange">+7 (900) 100-00-00</Link>
+                            <Link href="example@yandex.ru" icon="mail" iconColor="orange">example@yandex.ru</Link>
+                        </div>
+                        <p class="footer__contacts-city">г. Саратов, проспект Столыпина, д.54</p>
+                        <Socials />
+                    </div>
+                    <div class="footer__mobileLinks">
+                        <p class="footer__text">Все права защищены ©2024</p>
+                        <a href="#" class="footer__text footer__text--link">Политика конфиденциальности</a>
+                    </div>
+                    <a href="https://spaceapp.ru/razrabotka" class="footer__develop">
+                        <p class="footer__text footer__text--link">Разработка сайта</p>
+                        <img src="/img/spaceapp.svg" alt="" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<Modal />
+<style is:global lang="scss">
+    .footer {
+        @include section;
+        --container-width: 1600px;
+        &__container {
+            background: #281d15;
+            grid-area: center;
+            padding-top: fluid(34px, 44px);
+            padding-bottom: 13px;
+            @include section;
+        }
+        &__mobileLinks {
+            display: none;
+        }
+        &__info {
+            display: flex;
+            justify-content: space-between;
+        }
+        &__wrapper {
+            grid-area: center;
+        }
+        &__logo {
+            width: fluid(120px, 150px);
+            height: 42px;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+        &__text {
+            font-size: 14px;
+            line-height: 18px;
+            color: #9c9c9c;
+            &--link {
+                transition: color $transition;
+                &:hover {
+                    color: #ffffff;
+                }
+            }
+            &--mt {
+                margin-top: fluid(40px, 65px);
+            }
+        }
+        &__block {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding-bottom: 11px;
+            margin-right: fluid(10px, 15px);
+            &-box {
+                display: flex;
+                flex-direction: column;
+                gap: 92px;
+            }
+        }
+        &__list {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin-right: fluid(30px, 71px);
+            padding-bottom: 11px;
+            &:nth-child(2) {
+                margin-right: fluid(30px, 85px);
+            }
+            &-box {
+                display: flex;
+                flex-direction: column;
+            }
+            &-title {
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 20px;
+                color: #ffffff;
+                margin-bottom: 10px;
+            }
+            &-link {
+                color: #9c9c9c;
+                font-size: 14px;
+                line-height: 18px;
+                margin-bottom: 8px;
+                transition: color $transition;
+                &:last-child {
+                    margin-bottom: 0;
+                }
+                @include hover {
+                    &:hover {
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+
+        &__contacts {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            &-links {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                margin-bottom: fluid(30px, 40px);
+            }
+            &-city {
+                font-size: fluid(14px, 16px);
+                line-height: fluid(22px, 24px);
+                color: #9c9c9c;
+                margin-bottom: fluid(30px, 40px);
+            }
+        }
+        &__develop {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            align-self: flex-end;
+            margin-top: fluid(40px, 65px);
+            @include hover {
+                &:hover {
+                    .footer__text--link {
+                        color: #ffffff;
+                    }
+                }
+            }
+            img {
+                width: 50px;
+                height: 40px;
+                object-fit: contain;
+            }
+        }
+    }
+    @include laptop {
+        .footer {
+            &__info {
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                gap: 20px;
+            }
+            &__block {
+                padding-bottom: 0;
+                margin-left: 0;
+                width: 20%;
+            }
+            &__list {
+                padding-bottom: 0;
+                margin-left: 0;
+                width: 35%;
+                &:nth-child(2) {
+                    margin-right: 0;
+                    width: 25%;
+                }
+            }
+            &__text {
+                display: none;
+            }
+            &__mobileLinks {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                .footer__text {
+                    display: block;
+                }
+            }
+            &__develop {
+                align-self: flex-start;
+                margin-top: 0;
+                .footer__text {
+                    display: block;
+                }
+            }
+            &__contacts {
+                width: 100%;
+                gap: 30px;
+            }
+        }
+    }
+    @include phone {
+        .footer {
+            &__list {
+                width: 100%;
+                &:nth-child(2) {
+                    width: 100%;
+                }
+            }
+        }
+    }
+</style>
+<script>
+    import IMask from "imask/holder"
+    import "imask/masked/pattern"
+
+    const phone = document.querySelectorAll('[name="phone"]')
+    if (phone) {
+        phone.forEach(element => {
+            if (element instanceof HTMLElement) {
+                const maskOptions = {
+                    mask: "+{7}(000) 000-00-00",
+                }
+                IMask(element, maskOptions)
+            }
+        })
+    }
+</script>

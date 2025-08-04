@@ -1,0 +1,11 @@
+---
+import Layout from "@components/Layout.astro"
+import Breadcrumbs from "@components/Breadcrumbs.astro"
+import Catalog from "@components/Catalog.astro"
+const items = ["Главная"]
+---
+
+<Layout title="Услуги">
+  <Breadcrumbs {items} last="Услуги / Каталог продукции" />
+  <Catalog />
+</Layout>

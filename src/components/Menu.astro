@@ -1,0 +1,63 @@
+---
+import Navigation from "./Navigation.astro"
+import Link from "./Link.astro"
+import SearchForm from "./SearchForm.astro"
+---
+
+<div class="menu">
+  <div class="menu__container">
+    <div class="menu__container-box">
+      <SearchForm />
+      <Navigation variant="mobile" />
+    </div>
+    <div class="menu__container-box">
+      <Link href="example@yandex.ru" icon="mail" iconColor="orange" textColor="black">example@yandex.ru</Link>
+      <Link href="+79001000000" iconColor="orange" textColor="black">+7 (900) 100-00-00</Link>
+    </div>
+  </div>
+</div>
+
+<style is:global lang="scss">
+  .menu {
+    @include section;
+    background-color: #fff;
+    position: fixed;
+    left: -100%;
+    top: 0px;
+    width: 100%;
+    height: 100vh;
+    padding-bottom: 30px;
+    padding-top: 100px;
+    z-index: 9;
+    transition: $transition;
+    overflow: auto;
+
+    &--open {
+      left: 0;
+    }
+    .SearchForm {
+      display: flex;
+    }
+    &__container {
+      grid-area: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      &-box {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+  }
+  @include tablet {
+    .menu {
+      &__container {
+        grid-area: full;
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+    }
+  }
+</style>
